@@ -1,10 +1,14 @@
 import Message from '../components/Message'
+import TypingBox from '../components/TypingBox'
 
 const App = React.createClass({
-    render: function () {
+    handleMessageSend(args) {},
+
+    render() {
         return (
             <div>
                 <Message author="Mike" text="Hey, noobs"/>
+                <TypingBox onSend={}/>
             </div>
         );
     }
