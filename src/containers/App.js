@@ -1,6 +1,6 @@
 import Message from '../components/Message'
 import TypingBox from '../components/TypingBox'
-import { sendMessage } from '../actions'
+import { sendMessage, changeAuthor } from '../actions'
 import reducer from '../reducer'
 import store from '../store'
 
@@ -17,22 +17,28 @@ const App = React.createClass({
         });
     },
 
+    handleAuthorChange(args){
+        let newAuthor = args.author;
+        this.props.store.dispatch(changeAuthor(newAuthor));
+    },
+
     handleMessageSend(args) {
-        let messageText = args.messageText;
-        this.props.store.dispatch(sendMessage(messageText));
+        let newMessageText = args.messageText;
+        this.props.store.dispatch(sendMessage(newMessageText));
     },
 
     render() {
-        const messages = this.props.store.getState().messages;
+        const state = this.props.store.getState();
 
         return (
             <div>
-                {messages.map((message)=> {
+                {state.messages.map((message)=> {
                     return (
                         <Message key={message.id} author={message.author} messageText={message.messageText}/>
                     );
                 })}
-                <TypingBox onSend={this.handleMessageSend}/>
+                <TypingBox author={state.author}
+                           onAuthorChange={this.handleAuthorChange} onSend={this.handleMessageSend}/>
             </div>
         );
     }

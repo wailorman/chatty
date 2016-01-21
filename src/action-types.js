@@ -1,1 +1,2 @@
 export const SEND_MESSAGE = 'SEND_MESSAGE';
+export const CHANGE_AUTHOR = 'CHANGE_AUTHOR';

@@ -1,4 +1,4 @@
-import { SEND_MESSAGE } from './action-types'
+import { SEND_MESSAGE, CHANGE_AUTHOR } from './action-types'
 
 const defaultState = {
     user: {
@@ -17,6 +17,10 @@ export default function reducer(state = defaultState, action) {
                 messageText: action.messageText,
                 author: state.user.name
             });
+
+            return newState;
+        case CHANGE_AUTHOR:
+            newState.user.name = action.author;
 
             return newState;
         default:
