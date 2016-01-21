@@ -27,7 +27,7 @@ const TypingBox = React.createClass({
 
     handleClick() {
 
-        this.props.onSend({text: this.state.messageText});
+        this.props.onSend({messageText: this.state.messageText});
 
     },
 

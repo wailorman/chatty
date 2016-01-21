@@ -3,21 +3,21 @@ const Message = React.createClass({
     propTypes: {
 
         author: React.PropTypes.string,
-        text: React.PropTypes.string
+        messageText: React.PropTypes.string
 
     },
 
     getDefaultProps() {
         return {
             author: 'anon',
-            text: ''
+            messageText: ''
         }
     },
 
     render: function () {
         return (
             <div>
-                <strong>{this.props.author}</strong>: {this.props.text}
+                <strong>{this.props.author}</strong>: {this.props.messageText}
             </div>
         );
     }
